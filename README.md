@@ -8,3 +8,5 @@ the user interface would be simple and would not have any kind of login/ signup 
 completely a day list. Might be adding some new features later.
 
 -----------------------------
+
+For now I will make this a calculator. and transform it to a tod list. 
