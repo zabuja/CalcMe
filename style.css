@@ -1,0 +1,42 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: Agency FB, sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #0874da, #8cf316);
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px) ;
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px) ;
+  
+
+}
+
+.calculator-grid > button{
+    cursor: grab;
+    font-size: 2rem;
+    border: 1px solid white ;
+    outline: none;
+    background: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover{
+    background-color: #ffb6e7 ;
+}
+
+.span-two{
+    grid-column: span 2;
+}
+.output{
+    grid-column: 1/-1;
+    background-color: rgba(0, 0, 0, .75) ;
+}
