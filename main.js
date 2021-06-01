@@ -11,8 +11,8 @@ class Calculator
    {
         this.currentOperand= ''
         this.previousOperand = ''
-        this.operation = null
-   } 
+        this.operation = undefined
+   }
 
    delete()
    {
@@ -56,11 +56,14 @@ class Calculator
                   answer = pre*cur
                   break
             case '&divide':
-                 answer = pre%cur
+                 answer = pre/cur
                  break
             default:
                 return
        }
+       this.currentOperand = answer
+       this.operation = undefined
+       this.previousOperand = ''
    }
 
    update()
@@ -102,12 +105,12 @@ numberButtons.forEach(button => {
       calculator.update()
  })
 
- clearButton.addEventListener('click', () =>{
+ clearButton.addEventListener('click', () => {
       calculator.clear()
       calculator.update()
  })
  
- deleteButton.addEventListener('click', () =>{
+ deleteButton.addEventListener('click', () => {
       calculator.delete()
       calculator.update()
  })
