@@ -11,27 +11,42 @@ class Calculator
    {
         this.currentOperand= ''
         this.previousOperand = ''
-        this.operation = undefined
+        this.operation = null
    } 
 
    delete()
    {
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+   }
+
+   appendOperands(number) //appends the operands
+   {
+        if(number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = String(this.currentOperand) + String(number)
+   }
+
+   addOperation(operation)
+   {    
+        if(this.currentOperand === '') return
+        if(this.previousOperand !== '')
+        {
+             this.compute()
+        }
+        this.operation = operation
+        this.previousOperand  = this.currentOperand
+        this.currentOperand = ''
 
    }
 
-   operands(number)
-   {
-        this.currentOperand = this.currentOperand
+   
 
-   operation(operation)
-   {
-
-   }
-
-   result()
+   update()
    {
         this.currentOperandTextElement.innerText = this.currentOperand
+        this.previousOperandTextElement.innerText = this.previousOperand
+        
    }
+
 }
 
 
@@ -46,8 +61,30 @@ const currentOperandTextElement = document.querySelector('[data-cur-operand')
 const calculator = new Calculator (previousOperandTextElement, currentOperandTextElement)
 
 numberButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        calculator.operands(button.innerText)
-        calculator.result()
-    })
-})
+     button.addEventListener('click', () => {
+         calculator.appendOperands(button.innerText)
+         calculator.update()
+     })
+ })
+ 
+ operationButtons.forEach(button => {
+     button.addEventListener('click', () => {
+         calculator.addOperation(button.innerText)
+         calculator.update()
+     })
+ })
+
+ equalsButton.addEventListener('click', button => {
+      calculator.compute()
+      calculator.update()
+ })
+
+ clearButton.addEventListener('click', () =>{
+      calculator.clear()
+      calculator.update()
+ })
+ 
+ deleteButton.addEventListener('click', () =>{
+      calculator.delete()
+      calculator.update()
+ })
