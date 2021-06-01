@@ -23,7 +23,7 @@ class Calculator
    appendOperands(number) //appends the operands
    {
         if(number === '.' && this.currentOperand.includes('.')) return
-        this.currentOperand = this.currentOperand.toString() + number.toString()
+        this.currentOperand = String(this.currentOperand) + String(number)
    }
 
    addOperation(operation)
@@ -44,7 +44,6 @@ class Calculator
        let answer
        const pre = parseFloat(this.previousOperand)
        const cur = parseFloat(this.currentOperand)
-       this.previousOperand = `${this.previousOperand}`
        if(isNaN(pre) || isNaN(cur)) return
        switch (this.operation)
        {
