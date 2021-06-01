@@ -4,6 +4,7 @@ class Calculator
     {
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
+        this.clear()
 
     }
 
@@ -22,7 +23,7 @@ class Calculator
    appendOperands(number) //appends the operands
    {
         if(number === '.' && this.currentOperand.includes('.')) return
-        this.currentOperand = String(this.currentOperand) + String(number)
+        this.currentOperand = this.currentOperand.toString() + number.toString()
    }
 
    addOperation(operation)
@@ -43,6 +44,7 @@ class Calculator
        let answer
        const pre = parseFloat(this.previousOperand)
        const cur = parseFloat(this.currentOperand)
+       this.previousOperand = `${this.previousOperand}`
        if(isNaN(pre) || isNaN(cur)) return
        switch (this.operation)
        {
@@ -73,7 +75,6 @@ class Calculator
         {
           this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
         }
-        
     }
 
 }
