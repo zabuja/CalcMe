@@ -25,18 +25,7 @@ class Calculator
         this.currentOperand = String(this.currentOperand) + String(number)
    }
 
-   addOperation(operation)
-   {    
-        if(this.currentOperand === '') return
-        if(this.previousOperand !== '')
-        {
-             this.compute()
-        }
-        this.operation = operation
-        this.previousOperand  = this.currentOperand
-        this.currentOperand = ''
 
-   }
 
    compute()
    {
