@@ -57,7 +57,7 @@ class Calculator
             case 'x':
                   answer = pre*cur
                   break
-            case '&divide':
+            case '÷':
                  answer = pre/cur
                  break
             default:
