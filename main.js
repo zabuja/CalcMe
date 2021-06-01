@@ -63,7 +63,12 @@ class Calculator
        }
    }
 
- 
+   update()
+   {
+        this.currentOperandTextElement.innerText = this.currentOperand
+        this.previousOperandTextElement.innerText = this.previousOperand
+        
+   }
 
 }
 
