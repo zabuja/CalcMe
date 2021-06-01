@@ -38,7 +38,30 @@ class Calculator
 
    }
 
-   
+   compute()
+   {
+       let answer
+       const pre = parseFloat(this.previousOperand)
+       const cur = parseFloat(this.currentOperand)
+       if(isNaN(pre) || isNaN(cur)) return
+       switch (this.operation)
+       {
+            case '+':
+                 answer = pre + cur
+                 break
+            case '-':
+                 answer = pre-cur
+                 break
+            case 'x':
+                  answer = pre*cur
+                  break
+            case '&divide':
+                 answer = pre%cur
+                 break
+            default:
+                return
+       }
+   }
 
    update()
    {
